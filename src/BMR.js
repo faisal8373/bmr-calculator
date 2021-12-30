@@ -1,11 +1,19 @@
 import React from "react";
+import { useState } from "react";
+
 
 function BMR() {
+  const [gender, setGender] = useState('');
+  const [method, setMethod] = useState('');
+console.log('gender', gender);
+console.log('method', method);
+
+
   return (
     <div id="bmrcalc">
-      <div className="form">
+      <div className="form" >
         <h2>BMR &amp; Daily Calorie Calculator</h2>
-        <div className="inputwrap">
+        <div className="inputwrap" onChange={(event) => {setGender(event.target.value)}}>
           <label className="label">Gender</label>
           <label>
             <input type="radio" className="genderF" name="gender" value="1" />
@@ -14,6 +22,17 @@ function BMR() {
           <label>
             <input type="radio" className="genderM" name="gender" value="2" />
             Male
+          </label>
+        </div>
+        <div className="inputwrap" onChange={(event) => {setGender(event.target.value)}}>
+          <label className="label">Method</label>
+          <label>
+            <input type="radio" className="genderF" name="method" value="1" />
+            Imperial
+          </label>
+          <label>
+            <input type="radio" className="genderM" name="method" value="2" />
+            Matric
           </label>
         </div>
         <div className="inputwrap">
@@ -27,14 +46,14 @@ function BMR() {
           />
         </div>
         <div className="inputwrap">
-          <label className="label">Height in feet and inches</label>
-          <input
+          <label className="label">Height in inches</label>
+          {/* <input
             type="number"
             name="heightFeet"
             className="heightFeet"
             min="0"
             max="8"
-          />
+          /> */}
           <input
             type="number"
             name="heightInches"
